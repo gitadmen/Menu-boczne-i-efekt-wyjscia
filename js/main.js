@@ -1,19 +1,22 @@
 $(document).ready(function() {
 
+    var t;
 
+    $('.side-menu').mouseleave(hide);
+    $('.side-menu').mouseenter(menuShow);
 
-    $('.side-menu').mouseenter(function() { // wysuwanie
-
+    function menuShow() {
+        clearTimeout(t);
         $('.side-menu').animate({ marginLeft: '0px' }, 500)
-        $('.side-menu').addClass('open')
-    })
+    }
 
-    $('.side-menu').mouseleave(function() {
-        setTimeout(() => {
-            $('.side-menu').animate({ marginLeft: '-160px' }, 500)
-            $('.side-menu').removeClass('open')
-        }, 1000);
-    })
+    function menuHide() {
+        $('.side-menu').animate({ marginLeft: '-160px' }, 400)
+    }
+
+    function hide() {
+        t = setTimeout(menuHide, 1000);
+    }
 
 
     $('.slide').click(function() {
@@ -28,8 +31,4 @@ $(document).ready(function() {
         }
 
     });
-
-
-
-
 });
