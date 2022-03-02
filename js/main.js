@@ -31,4 +31,11 @@ $(document).ready(function() {
         }
 
     });
+
+
+    $('a').click(function() {
+
+        $(window).fadeOut(2000);
+    })
+
 });
